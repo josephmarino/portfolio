@@ -1,0 +1,5 @@
+/.github/ export-ignore
+/.aws/ export-ignore
+.eslintrc.yml export-ignore
+.stylelintrc.yml export-ignore
+.gitattributes export-ignore
