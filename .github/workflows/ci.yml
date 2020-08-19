@@ -1,0 +1,55 @@
+name: build
+on: 
+  push:
+    branches:
+      - master
+    paths:
+      - '**.php'
+      - '**.class'
+      - '**.js'
+      - '**.css'
+      
+  pull_request:
+    paths:
+      - '**.php'
+      - '**.class'
+      - '**.js'
+      - '**.css'
+
+jobs:
+  build:
+    name: Run PHP, JS and CSS Linters
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup Node
+      uses: actions/setup-node@v2.1.1
+      with:
+        node-version: 12
+    - uses: actions/checkout@v2
+    - name: Use Node.js 
+      uses: actions/setup-node@v2.1.1
+      with:
+        node-version: 12 
+
+    - name: Install Lint Tools
+      run: |
+        npm i -g phplint
+        npm i -g eslint
+        npm install --save-dev eslint-plugin-compat
+        npm install --save-dev stylelint stylelint-config-standard
+
+    - name: Run PHP Linter
+      run: |
+        phplint '**/*.php'
+        
+    - name: Run JS Linter
+      run: |
+        eslint --debug '**/*.js'
+    
+    - name: Run CSS Linter
+      run: |
+        npx stylelint "**/*.css" --formatter verbose
+
+      env:
+        CI: true
