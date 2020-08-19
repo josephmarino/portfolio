@@ -3,3 +3,4 @@
 .eslintrc.yml export-ignore
 .stylelintrc.yml export-ignore
 .gitattributes export-ignore
+package.json export-ignore

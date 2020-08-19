@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/josephmarino/portfolio/workflows/build/badge.svg)](https://github.com/josephmarino/portfolio/actions?query=workflow:build) [![Actions Status](https://github.com/josephmarino/portfolio/workflows/deploy/badge.svg)](https://github.com/josephmarino/portfolio/actions?query=workflow:deploy) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/josephmarino/portfolio/blob/master/LICENSE)
+[![Actions Status](https://github.com/josephmarino/portfolio/workflows/build/badge.svg)](https://github.com/josephmarino/portfolio/actions?query=workflow:build) [![Actions Status](https://github.com/josephmarino/portfolio/workflows/deploy/badge.svg)](https://github.com/josephmarino/portfolio/actions?query=workflow:deploy) [![Known Vulnerabilities](https://snyk.io/test/github/josephmarino/portfolio/badge.svg)](https://snyk.io/test/github/josephmarino/portfolio) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/josephmarino/portfolio/blob/master/LICENSE)
 
 ### A portfolio website with a clean design optimized to load fast and display a lot of content
 This repo contains a templatized version of the source code to my portfolio website, [josephmarino.net](https://josephmarino.net). When developing this portfolio I used the following libraries: [bootstrap](https://github.com/twbs/bootstrap), [jquery](https://github.com/jquery/jquery), [jquery-easing](https://github.com/gdsmith/jquery.easing), [mozilla pdf.js](https://github.com/mozilla/pdf.js), SVG icons from [font awesome](https://github.com/FortAwesome/Font-Awesome), and open sans and noto hk fonts from [google](https://github.com/google/fonts).
@@ -93,6 +93,8 @@ After typing the command, php -S localhost:8000, open up Chrome or your favorite
 ---
 ### Directory tree for this repo
 ```
+portfolio
+|
 ├── .aws
 │   └── ecs
 │       └── docker
@@ -100,158 +102,159 @@ After typing the command, php -S localhost:8000, open up Chrome or your favorite
 │           │   └── conf.d
 │           └── php-fpm
 ├── .github
-│   └── workflows
-src
-├── error
-├── img
-├── include
-├── libs
-│   ├── bootstrap
-│   │   └── v3.4.1
-│   │       ├── css
-│   │       └── js
-│   ├── fonts
-│   │   ├── noto_sans_hk
-│   │   │   └── regular
-│   │   └── open_sans
-│   │       └── regular
-│   ├── jpm
-│   │   └── v1.0
-│   │       └── css
-│   ├── jquery
-│   │   └── v3.4.1
-│   ├── jquery-easing
-│   │   └── v1.4.1
-│   └── pdf.js
-│       └── v2.3.200
-│           ├── build
-│           └── web
-│               ├── cmaps
-│               ├── images
-│               └── locale
-│                   ├── ach
-│                   ├── af
-│                   ├── ak
-│                   ├── an
-│                   ├── ar
-│                   ├── ast
-│                   ├── az
-│                   ├── be
-│                   ├── bg
-│                   ├── bn-BD
-│                   ├── bn-IN
-│                   ├── br
-│                   ├── brx
-│                   ├── bs
-│                   ├── ca
-│                   ├── cak
-│                   ├── cs
-│                   ├── csb
-│                   ├── cy
-│                   ├── da
-│                   ├── de
-│                   ├── el
-│                   ├── en-CA
-│                   ├── en-GB
-│                   ├── en-US
-│                   ├── eo
-│                   ├── es-AR
-│                   ├── es-CL
-│                   ├── es-ES
-│                   ├── es-MX
-│                   ├── et
-│                   ├── eu
-│                   ├── fa
-│                   ├── ff
-│                   ├── fi
-│                   ├── fr
-│                   ├── fy-NL
-│                   ├── ga-IE
-│                   ├── gd
-│                   ├── gl
-│                   ├── gn
-│                   ├── gu-IN
-│                   ├── he
-│                   ├── hi-IN
-│                   ├── hr
-│                   ├── hsb
-│                   ├── hto
-│                   ├── hu
-│                   ├── hy-AM
-│                   ├── ia
-│                   ├── id
-│                   ├── is
-│                   ├── it
-│                   ├── ja
-│                   ├── ka
-│                   ├── kab
-│                   ├── kk
-│                   ├── km
-│                   ├── kn
-│                   ├── ko
-│                   ├── kok
-│                   ├── ks
-│                   ├── ku
-│                   ├── lg
-│                   ├── lij
-│                   ├── lo
-│                   ├── lt
-│                   ├── ltg
-│                   ├── lv
-│                   ├── meh
-│                   ├── mk
-│                   ├── mn
-│                   ├── mr
-│                   ├── ms
-│                   ├── my
-│                   ├── nb-NO
-│                   ├── ne-NP
-│                   ├── nl
-│                   ├── nn-NO
-│                   ├── nso
-│                   ├── oc
-│                   ├── pa-IN
-│                   ├── pl
-│                   ├── pt-BR
-│                   ├── pt-PT
-│                   ├── rm
-│                   ├── ro
-│                   ├── ru
-│                   ├── rw
-│                   ├── sah
-│                   ├── sat
-│                   ├── si
-│                   ├── sk
-│                   ├── sl
-│                   ├── son
-│                   ├── sq
-│                   ├── sr
-│                   ├── sv-SE
-│                   ├── sw
-│                   ├── ta
-│                   ├── ta-LK
-│                   ├── te
-│                   ├── th
-│                   ├── tl
-│                   ├── tn
-│                   ├── tr
-│                   ├── tsz
-│                   ├── uk
-│                   ├── ur
-│                   ├── uz
-│                   ├── vi
-│                   ├── wo
-│                   ├── xh
-│                   ├── zam
-│                   ├── zh-CN
-│                   ├── zh-TW
-│                   └── zu
-├── pdf
-└── portfolio
-    ├── 1
-    ├── 2
-    ├── 3
-    └── 4
+│   └── workflows
+└── src
+    ├── include
+    └── www
+        ├── error
+        ├── img
+        ├── libs
+        │   ├── bootstrap
+        │   │   └── v3.4.1
+        │   │       ├── css
+        │   │       └── js
+        │   ├── fonts
+        │   │   ├── noto_sans_hk
+        │   │   │   └── regular
+        │   │   └── open_sans
+        │   │       └── regular
+        │   ├── jpm
+        │   │   └── v1.0
+        │   │       └── css
+        │   ├── jquery
+        │   │   └── v3.4.1
+        │   ├── jquery-easing
+        │   │   └── v1.4.1
+        │   └── pdf.js
+        │       └── v2.3.200
+        │           ├── build
+        │           └── web
+        │               ├── cmaps
+        │               ├── images
+        │               └── locale
+        │                   ├── ach
+        │                   ├── af
+        │                   ├── ak
+        │                   ├── an
+        │                   ├── ar
+        │                   ├── ast
+        │                   ├── az
+        │                   ├── be
+        │                   ├── bg
+        │                   ├── bn-BD
+        │                   ├── bn-IN
+        │                   ├── br
+        │                   ├── brx
+        │                   ├── bs
+        │                   ├── ca
+        │                   ├── cak
+        │                   ├── cs
+        │                   ├── csb
+        │                   ├── cy
+        │                   ├── da
+        │                   ├── de
+        │                   ├── el
+        │                   ├── en-CA
+        │                   ├── en-GB
+        │                   ├── en-US
+        │                   ├── eo
+        │                   ├── es-AR
+        │                   ├── es-CL
+        │                   ├── es-ES
+        │                   ├── es-MX
+        │                   ├── et
+        │                   ├── eu
+        │                   ├── fa
+        │                   ├── ff
+        │                   ├── fi
+        │                   ├── fr
+        │                   ├── fy-NL
+        │                   ├── ga-IE
+        │                   ├── gd
+        │                   ├── gl
+        │                   ├── gn
+        │                   ├── gu-IN
+        │                   ├── he
+        │                   ├── hi-IN
+        │                   ├── hr
+        │                   ├── hsb
+        │                   ├── hto
+        │                   ├── hu
+        │                   ├── hy-AM
+        │                   ├── ia
+        │                   ├── id
+        │                   ├── is
+        │                   ├── it
+        │                   ├── ja
+        │                   ├── ka
+        │                   ├── kab
+        │                   ├── kk
+        │                   ├── km
+        │                   ├── kn
+        │                   ├── ko
+        │                   ├── kok
+        │                   ├── ks
+        │                   ├── ku
+        │                   ├── lg
+        │                   ├── lij
+        │                   ├── lo
+        │                   ├── lt
+        │                   ├── ltg
+        │                   ├── lv
+        │                   ├── meh
+        │                   ├── mk
+        │                   ├── mn
+        │                   ├── mr
+        │                   ├── ms
+        │                   ├── my
+        │                   ├── nb-NO
+        │                   ├── ne-NP
+        │                   ├── nl
+        │                   ├── nn-NO
+        │                   ├── nso
+        │                   ├── oc
+        │                   ├── pa-IN
+        │                   ├── pl
+        │                   ├── pt-BR
+        │                   ├── pt-PT
+        │                   ├── rm
+        │                   ├── ro
+        │                   ├── ru
+        │                   ├── rw
+        │                   ├── sah
+        │                   ├── sat
+        │                   ├── si
+        │                   ├── sk
+        │                   ├── sl
+        │                   ├── son
+        │                   ├── sq
+        │                   ├── sr
+        │                   ├── sv-SE
+        │                   ├── sw
+        │                   ├── ta
+        │                   ├── ta-LK
+        │                   ├── te
+        │                   ├── th
+        │                   ├── tl
+        │                   ├── tn
+        │                   ├── tr
+        │                   ├── tsz
+        │                   ├── uk
+        │                   ├── ur
+        │                   ├── uz
+        │                   ├── vi
+        │                   ├── wo
+        │                   ├── xh
+        │                   ├── zam
+        │                   ├── zh-CN
+        │                   ├── zh-TW
+        │                   └── zu
+        ├── pdf
+        └── portfolio
+            ├── 1
+            ├── 2
+            ├── 3
+            └── 4
 ```
 ---
 

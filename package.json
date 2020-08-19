@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "A portfolio website with a clean design optimized to load fast and display a lot of content",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephmarino/portfolio.git"
+  },
+  "author": "Joseph P. Marino <joseph@marino.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/josephmarino/portfolio/issues"
+  },
+  "homepage": "https://github.com/josephmarino/portfolio",
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.4.1",
+    "jquery.easing": "^1.4.1",
+    "pdfjs-dist": "^2.3.200"
+  }
+}
