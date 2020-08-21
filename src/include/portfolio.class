@@ -1,0 +1,128 @@
+<?php 
+///
+// +------------------------------------------------------------------------------------------------+
+// | Portfolio v1.0                                                                                 |
+// | Author: Joseph P. Marino <joseph@marino.net> | https://josephmarino.net                        |
+// +------------------------------------------------------------------------------------------------+
+// | MIT License                                                                                    |
+// |                                                                                                |
+// | Copyright (c) 2020 Joseph P. Marino <joseph@marino.net>                                        |
+// |                                                                                                |
+// | Permission is hereby granted, free of charge, to any person obtaining a copy of this software  |
+// | and associated documentation files (the "Software"), to deal in the Software without           |
+// | restriction, including without limitation the rights to use, copy, modify, merge, publish,     |
+// | distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the  |
+// | Software is furnished to do so, subject to the following conditions:                           |
+// |                                                                                                |
+// | The above copyright notice and this permission notice shall be included in all copies or       |
+// | substantial portions of the Software.                                                          |
+// |                                                                                                |
+// | THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING  |
+// | BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND     |
+// | NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,   |
+// | DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, |
+// | OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.        |
+// +------------------------------------------------------------------------------------------------+
+///
+
+class Portfolio {
+
+     protected $nonce;
+
+function ForceSSL() {
+
+/*
+     This function will force the URI scheme to https:// if the user types in http:// in their 
+     webbrowser's addressbar when accessing the URL of this site. If https is being forced 
+     by an http daemon such as nginx or is forced by a rule in a CDN then this function 
+     will not do anything as https was already set by the daemon or CDN.
+*/
+
+     if( !isset($_SERVER['HTTPS']) ) {
+
+        header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        exit();
+     }
+}
+
+function SetHTTPHeader ($header) {
+
+/*
+      The below SetHTTPHeader function checks to see if specific HTTP headers exist such as
+      Strict-Transport-Security, X-Content-Type-Options, X-XSS-Protection, X-Frame-Options,
+      Referrer-Policy. If these HTTP headers do not exist this function will apply them.
+
+      If any of these HTTP headers are already being applied by an HTTP daemon such as nginx 
+      this function will not apply those headers that are already being applied by the HTTP
+      daemon. 
+*/
+
+      $http_header_list = implode(headers_list());
+
+      switch ($header) {
+
+         case 'Strict-Transport-Security':
+
+           $http_header = stripos($http_header_list, 'Strict-Transport-Security');
+
+             if ($http_header === false) {
+
+                header('Strict-Transport-Security: max-age=63072000; includeSubdomains; preload');
+                break;
+             }
+
+         case 'Referrer-Policy':
+           
+           $http_header = stripos($http_header_list, 'Referrer-Policy');
+
+             if ($http_header === false) {
+
+                header('Referrer-Policy: strict-origin-when-cross-origin');
+                break;
+             }
+
+         case 'X-Content-Type-Options':
+
+           $http_header = stripos($http_header_list, 'X-Content-Type-Options');
+
+             if ($http_header === false) {
+
+                header('X-Content-Type-Options: nosniff');
+                break;
+             }
+
+         case 'X-XSS-Protection':
+
+           $http_header = stripos($http_header_list, 'X-XSS-Protection');
+
+             if ($http_header === false) {
+
+                header('X-XSS-Protection: 1; mode=block');
+                break;
+             }
+
+         case 'X-Frame-Options':
+
+           $http_header = stripos($http_header_list, 'X-Frame-Options');
+
+             if ($http_header === false) {
+
+                header('X-Frame-Options: SAMEORIGIN');
+                break;
+             }
+
+         case 'X-Robots-Tag-Noarchive-Noindex':
+
+           $http_header = stripos($http_header_list, 'X-Robots-Tag-Noarchive-Noindex');
+
+             if ($http_header === false) {
+
+                header('X-Robots-Tag: noarchive, noindex');
+                break;
+             }
+      }
+}
+
+}
+
+?>
