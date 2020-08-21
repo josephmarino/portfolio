@@ -33,7 +33,7 @@
 <!-- load js libraries -->
 
 <!-- jquery -->
-<script defer src="/libs/jquery/v3.4.1/jquery.min.js"></script>
+<script defer src="/libs/jquery/v3.5.1/jquery.min.js"></script>
 
 <!-- jquery advanced easing -->
 <script defer src="/libs/jquery-easing/v1.4.1/jquery.easing.min.js"></script>

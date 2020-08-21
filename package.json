@@ -14,7 +14,7 @@
   "homepage": "https://github.com/josephmarino/portfolio",
   "dependencies": {
     "bootstrap": "^3.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "jquery.easing": "^1.4.1",
     "pdfjs-dist": "^2.3.200"
   }
