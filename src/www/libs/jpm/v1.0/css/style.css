@@ -1,0 +1,284 @@
+/* 
+      +------------------------------------------------------------------------------------------------+
+      | Portfolio v1.0                                                                                 |
+      | Author: Joseph P. Marino <joseph@marino.net> | https://josephmarino.net                        |
+      +------------------------------------------------------------------------------------------------+
+      | MIT License                                                                                    |
+      |                                                                                                |
+      | Copyright (c) 2020 Joseph P. Marino <joseph@marino.net>                                        |
+      |                                                                                                |
+      | Permission is hereby granted, free of charge, to any person obtaining a copy of this software  |
+      | and associated documentation files (the "Software"), to deal in the Software without           |
+      | restriction, including without limitation the rights to use, copy, modify, merge, publish,     |
+      | distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the  |
+      | Software is furnished to do so, subject to the following conditions:                           |
+      |                                                                                                |
+      | The above copyright notice and this permission notice shall be included in all copies or       |
+      | substantial portions of the Software.                                                          |
+      |                                                                                                |
+      | THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING  |
+      | BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND     |
+      | NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,   |
+      | DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, |
+      | OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.        |
+      +------------------------------------------------------------------------------------------------+
+*/
+
+/*
+      Locally load fonts
+*/
+
+@font-face {
+      font-family: 'Noto Sans HK';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Noto Sans HK'),
+           url('/libs/fonts/noto_sans_hk/regular/notosanshk-regular.woff2') format('woff2'), 
+           url('/libs/fonts/noto_sans_hk/regular/notosanshk-regular.woff') format('woff'),
+           url('/libs/fonts/noto_sans_hk/regular/notosanshk-regular.ttf') format('truetype'),
+           url('/libs/fonts/noto_sans_hk/regular/notosanshk-regular.eot') format('embedded-opentype');
+      font-display: swap;
+      unicode-range: U+0020-007F;
+}
+
+@font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Open Sans'),
+           url('/libs/fonts/open_sans/regular/opensans-regular.woff2') format('woff2'), 
+           url('/libs/fonts/open_sans/regular/opensans-regular.woff') format('woff'),
+           url('/libs/fonts/open_sans/regular/opensans-regular.ttf') format('truetype'),
+           url('/libs/fonts/open_sans/regular/opensans-regular.eot') format('embedded-opentype');
+      font-display: swap;
+      unicode-range: U+0020-007F;
+}
+
+.open-sans-blue {
+      font-family: 'Open Sans', sans-serif; 
+      color: #0077b5;
+}
+
+.open-sans-body {
+      font-family: 'Open Sans', sans-serif;
+}
+
+.noto-hk-blue {
+      font-family: 'Noto Sans HK', sans-serif; 
+      color: #0077b5;
+}
+
+.carousel-caption {
+/* 
+      Utilize carousel caption to create black blocks over images; these blocks are used on /portfolio/ 
+*/
+      background: rgba(0, 0, 0, 0.5);
+      padding-bottom: 20px;
+      bottom: 30px;
+      padding: 20px;
+}
+
+.carousel-control.left, 
+.carousel-control.right {
+      filter: progid none !important;
+      filter: none !important;
+      background-image: none;
+      outline: 0;
+      opacity: 1;
+}
+
+/* 
+      Style links 
+*/
+a:link,
+a:hover,
+a:active {
+      color: #0000EE;
+}
+
+a:visited {
+      color: #551A8B;
+}
+
+.padding-right-15px {
+      padding-right: 15px;
+}
+
+.padding-left-10px {
+      padding-left: 10px;
+}
+
+.padding-left-15px {
+      padding-left: 15px;
+}
+
+.padding-left-right-10px {
+      padding-left: 10px; 
+      padding-right: 10px;
+}
+
+.color-light-grey {
+      color: #595959;
+}
+
+.wrapper, img {
+      width: 100%;
+}
+
+.thin_hr {
+/*
+      Light colored thin hr line used on the footer of every page
+*/
+      margin-top: 0;
+      margin-bottom: 0;
+      border: 0;
+      height: 1px;
+      background-color: #DDDDDD;
+}
+
+.footer-text {
+      text-align: center; 
+      font-size: 12px; 
+      font-family: 'Open Sans', sans-serif;
+}
+
+.center-asset {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+}
+
+.headshot {
+/*
+      Style headshot image
+*/
+      border-radius: 50%; 
+      width: 200px; 
+      box-shadow: 5px 5px 13px #888888;
+}
+
+.border-hidden {
+      border: hidden;
+}
+
+.border-none {
+      border: none;
+}
+
+.display-block {
+      display: block;
+}
+
+.svg-linkedin-blue {
+/*  
+      This shade of blue was obtained by applying Photoshop's eyedropper tool on LinkedIn's logo
+*/
+      fill: #0073b0;
+}
+
+.navbar {
+/* 
+      Style appearance of the nav-bar component 
+*/
+      border-bottom: #DDDDDD;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      background-color: rgba(255, 255, 255, 0.938);
+}  
+
+/*
+      Style links in black color
+      Black colored links are used in the navbar 
+*/
+a.blk-link:link,
+a.blk-link:hover,
+a.blk-link:active,
+a.blk-link:visited {
+      color: #000000;
+}
+
+/* 
+      Style appearance of the nav-pill component 
+*/	
+.blue.nav-pills>li.active>a,
+.blue.nav-pills>li.active>a:focus,
+.blue.nav-pills>li.active>a:hover,
+.blue.nav-pills>li>a:hover,
+
+.blue.nav>li>a:hover {
+      background-color: #0077B5;
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+}
+		
+.blue.nav-pills>li>a {
+      background-color: #4D4D4D;
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+}
+		
+.blue.nav-justified {
+      border-collapse: separate;
+      border-spacing: 5px;
+}
+
+div.nav-text-color li.nav-text-color a {
+      color: #808080;
+}
+
+/*
+      Set max-width, max-height and padding for various logo images
+*/
+
+.logo-xs {
+      padding-top: 8px; 
+      max-width: 280px;
+      max-height: 150px; 
+}
+
+.logo-sm-md-lg {
+      max-width: 400px;
+      max-height: 150px;
+}
+
+.logo-ms {
+      max-width: 200px; 
+      max-height: 50px; 
+      padding-left: 10px; 
+      padding-right: 10px;
+}
+
+.logo-akamail {
+      max-height: 50px;
+      max-width: 300px;
+}
+
+.logo-akalink {
+      max-height: 50px;
+      max-width: 250px;
+}
+
+.logo-gytheion {
+      max-width: 199px;
+      max-height: 29px; 
+}
+
+.logo-sc {
+      max-width:200px;
+      max-height:50px;
+}
+
+.ms-privacy-bug {
+      max-width: 930px;
+      max-height: 330px; 
+}
+
+/*
+      Set max width and max height for screenshots on portfolio pages
+*/
+
+.ss-max-width-1024px-max-height-768px {
+      max-width: 1024px; 
+      max-height: 768px;
+}
