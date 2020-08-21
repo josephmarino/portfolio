@@ -24,6 +24,9 @@
 // | OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.        |
 // +------------------------------------------------------------------------------------------------+
 ///
+
+     $insert_nonce = $portfolio->GetNonce();
+
 ?>
 <footer>
   <div class="thin_hr"></div><br>
@@ -33,19 +36,19 @@
 <!-- load js libraries -->
 
 <!-- jquery -->
-<script defer src="/libs/jquery/v3.5.1/jquery.min.js"></script>
+<script defer src="/libs/jquery/v3.5.1/jquery.min.js" nonce="<?php echo $insert_nonce; ?>"></script>
 
 <!-- jquery advanced easing -->
-<script defer src="/libs/jquery-easing/v1.4.1/jquery.easing.min.js"></script>
-<script defer src="/libs/jquery-easing/smooth-scrolling.min.js"></script>
+<script defer src="/libs/jquery-easing/v1.4.1/jquery.easing.min.js" nonce="<?php echo $insert_nonce; ?>"></script>
+<script defer src="/libs/jquery-easing/smooth-scrolling.min.js" nonce="<?php echo $insert_nonce; ?>"></script>
 
 <!-- bootstrap -->
-<script defer src="/libs/bootstrap/v3.4.1/js/bootstrap.min.js"></script>
+<script defer src="/libs/bootstrap/v3.4.1/js/bootstrap.min.js" nonce="<?php echo $insert_nonce; ?>"></script>
 
 <!-- analytics -->
-<script defer src="https://www.googletagmanager.com/gtag/js?id=**INSERT_YOUR_GOOGLE_ANALYTICS_ID_HERE**"></script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=**INSERT_YOUR_GOOGLE_ANALYTICS_ID_HERE**" nonce="<?php echo $insert_nonce; ?>"></script>
 
-<script>
+<script nonce="<?php echo $insert_nonce; ?>">
 	window.dataLayer = window.dataLayer || [];
 
 	function gtag() {

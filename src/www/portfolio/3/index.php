@@ -29,6 +29,7 @@ require ($_SERVER['DOCUMENT_ROOT'] . '/../include/portfolio.class');
 
      $portfolio = new Portfolio();
 
+     $portfolio->SetHTTPHeader('Content-Security-Policy');
      $portfolio->SetHTTPHeader('Strict-Transport-Security');
      $portfolio->SetHTTPHeader('Referrer-Policy');
      $portfolio->SetHTTPHeader('X-Content-Type-Options');

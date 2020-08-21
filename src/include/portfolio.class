@@ -45,21 +45,64 @@ function ForceSSL() {
      }
 }
 
+function GenerateNonce() {
+
+/*
+      This function generates a one-time use strong cryptographic string and then base64 encodes it. 
+      A nonce can also be generated server-side if you chose to not use this function. If you want 
+      to generate a the nonce server-side instead, take a look into using the 
+      set_secure_random_alphanum directive in OpenResty's set_misc_module for NGINX. 
+*/
+
+     $random_secure_string = random_bytes(34);
+     $random_nonce = base64_encode($random_secure_string);
+     $this->$nonce = $random_nonce;
+
+}
+
+function GetNonce() {
+
+     return $this->$nonce;
+
+}
+
 function SetHTTPHeader ($header) {
 
 /*
       The below SetHTTPHeader function checks to see if specific HTTP headers exist such as
       Strict-Transport-Security, X-Content-Type-Options, X-XSS-Protection, X-Frame-Options,
-      Referrer-Policy. If these HTTP headers do not exist this function will apply them.
+      Referrer-Policy and Content-Security Policy. If these HTTP headers do not exist this 
+      function will apply them.
+
+      With the Content-Security-Policy header, the SetHTTPHeader function applies the
+      CSP header with a nonce generated with the GenerateNonce function.
 
       If any of these HTTP headers are already being applied by an HTTP daemon such as nginx 
       this function will not apply those headers that are already being applied by the HTTP
-      daemon. 
+      daemon. For example, if you're setting the HTTP header "Content-Security-Policy" with nginx's 
+      add_header directive, and you're calling this SetHTTPHeader function, the Content-Security-Policy 
+      HTTP header set in your nginx config file will take precedence and be applied, and the 
+      Content-Security-Policy HTTP header applied by this SetHTTPHeader function will not be applied. 
+      So, if you want to set HTTP headers via this SetHTTPHeader function be sure that your HTTP daemon 
+      is not setting them.
 */
 
       $http_header_list = implode(headers_list());
 
       switch ($header) {
+
+         case 'Content-Security-Policy':
+
+           $http_header = stripos($http_header_list, 'Content-Security-Policy');
+      
+             if ($http_header === false) {
+
+                $this->GenerateNonce();
+                $generated_nonce = $this->GetNonce();
+
+                header("Content-Security-Policy: script-src 'strict-dynamic' 'nonce-$generated_nonce'; object-src 'none'; base-uri 'none'; default-src 'none'; connect-src 'self'; font-src 'self'; frame-src 'self'; frame-ancestors 'self'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self'; form-action 'self'; worker-src 'self';");
+                break;
+             }
 
          case 'Strict-Transport-Security':
 

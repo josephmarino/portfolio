@@ -29,6 +29,9 @@ require ($_SERVER['DOCUMENT_ROOT'] . '/../include/portfolio.class');
 
      $portfolio = new Portfolio();
 
+     $insert_nonce = $portfolio->GetNonce();
+
+     $portfolio->SetHTTPHeader('Content-Security-Policy');
      $portfolio->SetHTTPHeader('Strict-Transport-Security');
      $portfolio->SetHTTPHeader('Referrer-Policy');
      $portfolio->SetHTTPHeader('X-Content-Type-Options');
@@ -309,7 +312,7 @@ function OpenGraphImage() {
 	<br><br>
 <?php include ($_SERVER['DOCUMENT_ROOT'] . '/../include/footer.php'); ?>
 
-<script>
+<script nonce="<?php echo $insert_nonce; ?>">
 	document.addEventListener('DOMContentLoaded', function () {
 		document.getElementById('scroll-to-nyt')
 			.addEventListener('click', function shownyt() {
